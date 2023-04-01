@@ -1,24 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import AdminDash from './confrig/AdminDash';
+import InstituteDash from './confrig/InstituteDash';
+import Registration from './confrig/RegistScreen';
+import Login from './confrig/Login';
+import StudentDash from './confrig/StudentDash';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <BrowserRouter>
+    <Routes>
+      <Route path={'admin/*'} element={<AdminDash/>} />
+      <Route path={'institute/*'} element={<InstituteDash />} />
+      <Route path={'student/*'} element={<StudentDash />} />
+      <Route path={'/'} element={<Registration />} />
+      <Route path={'login'} element={<Login />} />
+    </Routes>
+    </BrowserRouter>
+
+    </>
   );
 }
 
